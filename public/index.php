@@ -1,6 +1,7 @@
 <?php
 
 use App\Kernel;
+use App\LegacyBridge;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,5 +19,17 @@ if ($_SERVER['APP_DEBUG']) {
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
-$response->send();
+//$response->send();
+
+/*
+ * LegacyBridge will take care of figuring out whether to boot up the
+ * existing application or to send the Symfony response back to the client.
+ */
+$scriptFile = LegacyBridge::prepareLegacyScript($request, $response, __DIR__);
+if ($scriptFile !== null) {
+    require $scriptFile;
+} else {
+    $response->send();
+}
+
 $kernel->terminate($request, $response);
