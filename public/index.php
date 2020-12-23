@@ -15,11 +15,6 @@ if ($_SERVER['APP_DEBUG']) {
     Debug::enable();
 }
 
-$dm = new \Dummy('test');
-echo $dm->getInit();
-
-die('////////////');
-
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);

@@ -15,7 +15,7 @@ class Dummy
      */
     public function getInit()
     {
-        return $this->init.'- Classes';
+        return $this->init.'- Classes 2';
     }
 
     /**
