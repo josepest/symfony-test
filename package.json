@@ -2,7 +2,10 @@
     "devDependencies": {
         "@symfony/stimulus-bridge": "^1.1.0",
         "@symfony/webpack-encore": "^0.32.0",
+        "autoprefixer": "^10.1.0",
         "core-js": "^3.0.0",
+        "postcss": "^8.1.7",
+        "postcss-loader": "^4.1.0",
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.30.0",
         "sass-loader": "9.0.1",
@@ -16,5 +19,11 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    }
+    },
+    "browserslist": [
+            "> 0.5%",
+            "last 2 versions",
+            "Firefox ESR",
+            "not dead"
+    ]
 }
