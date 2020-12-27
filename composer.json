@@ -63,7 +63,11 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "": ["legacy/lib", "legacy/gestion/classes/", "legacy/classes/"]
+            "": [
+                "legacy/lib",
+                "legacy/gestion/classes/",
+                "legacy/classes/"
+            ]
         }
     },
     "autoload-dev": {
