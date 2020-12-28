@@ -1,4 +1,6 @@
 {
+    "name" : "josepest/symfony-test",
+    "description": "Just testing symfony app",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
