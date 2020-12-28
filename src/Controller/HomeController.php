@@ -15,9 +15,11 @@ class HomeController extends AbstractController
      */
     public function index(MessageGenerator $messageGenerator, SiteUpdateManager $siteUpdateManager): Response
     {
+        /*
         if ($siteUpdateManager->notifyOfSiteUpdate()) {
             $this->addFlash('success', 'Notification mail was sent successfully.');
         }
+        */
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

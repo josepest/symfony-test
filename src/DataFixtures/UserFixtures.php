@@ -20,6 +20,7 @@ class UserFixtures extends Fixture
     {
         $user = new User();
         $user->setEmail('josepe@gmail.com');
+        $user->setRoles(['ROLE_ADMIN']);
         $user->setPassword($this->encoderFactory->getEncoder(User::class)->encodePassword(
             'oMPOLO010',
             null
