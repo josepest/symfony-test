@@ -20,8 +20,11 @@ security:
             anonymous: true
             lazy: true
             provider: app_user_provider
-            json_login:
-                check_path: api_login
+            guard:
+                authenticators:
+                    - App\Security\TokenAuthenticator
+            #json_login:
+            #    check_path: api_login
                 
         main:
             anonymous: true
@@ -34,6 +37,11 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 target: app_login            
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
 
         
 
