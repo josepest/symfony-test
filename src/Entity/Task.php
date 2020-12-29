@@ -13,9 +13,7 @@ class Task
 
     /**
      * @Assert\NotBlank
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email."
-     * )
+     * @Assert\Email
      */
     protected $email;
 

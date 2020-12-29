@@ -16,9 +16,20 @@
         <li>
             {{ happyMessage }}
         </li>
-        <li>Your controller at <code><a href="{{ 'C:/WWW/CLIENTS/Test/symfony_full_test/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/WWW/CLIENTS/Test/symfony_full_test/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+        <li>Tarea <a href="{{ path('task', {_locale:'es'}) }}">Tarea page</a></li>        
+        <li>Task <a href="{{ path('task', {_locale:'en'}) }}">Task page</a></li>                
+        <li>
+           {{ '{count, plural, =0 {Sin comentarios.} =1 {1 comentario.} other {# comentarios.}}' | trans({'count': 2}) }}
+        </li>
+            
+        <li>
+            {% trans with {'{name}': 'Josep'} %}Hola {name}{% endtrans %}
+        </li>        
+
+        {{ 'test' | trans }}
     </ul>
+
+    
 
     <img src="{{ asset('build/images/test.jpg') }}" style="width: 100px;">
 

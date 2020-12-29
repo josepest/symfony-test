@@ -18,6 +18,11 @@ symfony run -d yarn encore dev --watch
 #test
 symfony php bin/phpunit
 
+#translate
+console debug:router
+console translation:update --help    # (cache:clear before)
+console translation:update en --force --domain=messages --clean
+
 #deploy
 composer dump-env prod
 console cache:clear --env=prod

@@ -7,14 +7,18 @@ use App\Form\TaskType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class TaskController extends AbstractController
 {
     /**
-     * @Route("/task", name="task")
+     * @Route({
+     *     "es": "/tarea",
+     *     "en": "/task"
+     * }, name="task")
      */
-    public function index(Request $request): Response
+    public function index(Request $request, TranslatorInterface $translator): Response
     {
         $task = new Task();
         $task->setTask('Write a blog post');
@@ -27,6 +31,7 @@ class TaskController extends AbstractController
             ->add('save', SubmitType::class, ['label' => 'Create Task'])
             ->getForm();
         */
+        $test_trans = $translator->trans('Hola Mundo');
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
